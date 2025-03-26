@@ -1,4 +1,4 @@
-# 🕵️‍♂️ Weakly Interacting Massive Project 🌌
+# 🕵️‍♂️ Weakly Interacting Massive Particles 🌌
 
 **Welcome to WIMP – A project so mysterious, it barely interacts with reality.** 🚀💀
 
