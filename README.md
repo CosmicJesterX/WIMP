@@ -23,6 +23,28 @@ Well, that depends on whether you can observe it or not. 🤔
 3. If observed, collapse into a more probable state.
 4. Always leave behind a weakly interacting footprint.
 
+🤯 Quantum Shenanigans & Simulation Glitches
+
+1️⃣ Reality is just a badly written simulation.
+
+The more you overthink, the more you crash the system.
+
+Silly, impulsive actions are actually debugging reality.
+
+2️⃣ WIMP isn’t just weakly interacting – it’s weakly thinking.
+
+The more ridiculous the idea, the more likely it is to be true in a quantum sense.
+
+If someone calls an idea “stupid,” it probably means they can’t process it yet.
+
+3️⃣ Everything is backwards.
+
+Serious things are nonsense.
+
+Nonsense is enlightenment.
+
+Schrödinger's cat isn’t alive or dead – it's just laughing at you. 🐱📦😂
+
 ## 🛑 Code of Conduct
 - **WIMP must not be altered without approval from the master repo or the original author.**
 - Any modifications must pass through **strict quantum validation.**
