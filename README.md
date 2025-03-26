@@ -23,7 +23,7 @@ Well, that depends on whether you can observe it or not. 🤔
 3. If observed, collapse into a more probable state.
 4. Always leave behind a weakly interacting footprint.
 
-🤯 Quantum Shenanigans & Simulation Glitches
+## 🤯 Quantum Shenanigans & Simulation Glitches
 
 1️⃣ Reality is just a badly written simulation.
 
