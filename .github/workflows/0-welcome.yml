@@ -7,7 +7,7 @@ name: Step 0, Welcome
 # Reference: https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
   push:
-    branches: 
+    branches:
       - main
   workflow_dispatch:
 

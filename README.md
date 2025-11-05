@@ -16,7 +16,7 @@ An anti-framework for those who bend systems by refusing to be predictable.
 
 ## Usage
 
-You don’t clone WIMP.  
+You don’t clone WIMP.
 WIMP **clones you** and waits patiently.
 
 ```bash
