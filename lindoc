@@ -1,0 +1,142 @@
+pinky@pinky:~$ # Prereqs (Linux Mint): git + SSH key set up for GitLab
+sudo apt update && sudo apt install -y git
+
+# 1) Start a fresh local repo with only the UI mock
+mkdir mircat-ui-mock && cd mircat-ui-mock
+git init
+
+# 2) Pull the files from GitHub and copy just the demo (no build needed)
+git clone --depth 1 https://github.com/Smidjehoien/.github tmp-src
+cp -r tmp-src/examples/mirc-ui-mock/* .
+rm -rf tmp-src
+git add .
+git commit -m "chore: import mIRCat UI-only mock"
+
+# 3) Create a new empty project in GitLab (via UI) and add it as remote (SSH recommended)
+git remote add origin git@gitlab.com:YOUR_GROUP/mircat-ui-mock.git
+
+# 4) Push
+git branch -M main
+git push -u origin main
+[sudo] password for pinky:       
+Hit:1 http://ftp.acc.umu.se/ubuntu jammy InRelease
+Hit:2 http://eddie.website/repository/apt stable InRelease                     
+Hit:3 http://ftp.acc.umu.se/ubuntu jammy-updates InRelease                     
+Hit:4 http://dl.google.com/linux/earth/deb stable InRelease                    
+Hit:5 http://ftp.acc.umu.se/ubuntu jammy-backports InRelease                   
+Get:6 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]      
+Hit:7 https://ppa.launchpadcontent.net/git-core/ppa/ubuntu jammy InRelease     
+Hit:8 https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/apt stable InRelease
+Hit:9 https://packages.mozilla.org/apt mozilla InRelease                       
+Hit:10 https://packages.microsoft.com/repos/code stable InRelease              
+Hit:11 https://dl.google.com/linux/chrome/deb stable InRelease                 
+Ign:12 https://mirror.accum.se/mirror/linuxmint.com/packages virginia InRelease
+Hit:13 https://mirror.accum.se/mirror/linuxmint.com/packages virginia Release
+Hit:15 https://download.docker.com/linux/ubuntu focal InRelease                
+Fetched 129 kB in 8s (17,0 kB/s)                                               
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+git is already the newest version (1:2.51.0-0ppa2~ubuntu22.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+Initialized empty Git repository in /home/pinky/mircat-ui-mock/.git/
+Cloning into 'tmp-src'...
+remote: Enumerating objects: 12, done.
+remote: Counting objects: 100% (12/12), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 12 (delta 0), reused 7 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (12/12), 12.00 KiB | 1.09 MiB/s, done.
+[attest-build-provenance (root-commit) 608ad11] chore: import mIRCat UI-only mock
+ 4 files changed, 406 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 app.js
+ create mode 100644 index.html
+ create mode 100644 styles.css
+git@gitlab.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+pinky@pinky:~/mircat-ui-mock$ stages: [deploy]
+
+pages:
+  stage: deploy
+  image: alpine:3.20
+  script:
+    - mkdir -p public
+    - cp -r examples/mirc-ui-mock/* public/  # if using Option 2, use: cp -r * public/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+stages:: command not found
+pages:: command not found
+stage:: command not found
+Command 'image:' not found, did you mean:
+  command 'imagej' from deb imagej (1.53o-1)
+  command 'imagen' from deb hevea (2.35-1build1)
+Try: sudo apt install <deb name>
+Command 'script:' not found, did you mean:
+  command 'script' from deb bsdutils (1:2.37.2-4ubuntu3.4)
+  command 'script6' from deb ipv6toolkit (2.0+ds.1-1)
+Try: sudo apt install <deb name>
+-: command not found
+-: command not found
+artifacts:: command not found
+paths:: command not found
+-: command not found
+rules:: command not found
+-: command not found
+pinky@pinky:~/mircat-ui-mock$ cd
+pinky@pinky:~$ - mkdir -p public
+- cp -r examples/mirc-ui-mock/* public/  # if using Option 2, use: cp -r * public/
+-: command not found
+-: command not found
+pinky@pinky:~$ # Create and add an SSH key for GitLab (one-time)
+ssh-keygen -t ed25519 -C "you@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+cat ~/.ssh/id_ed25519.pub
+# Copy that output into GitLab: User Settings → SSH Keys, then test:
+ssh -T git@gitlab.com
+# Should say: "Welcome to GitLab, @YOURNAME!"
+# Then set the remote:
+git remote remove origin 2>/dev/null || true
+git remote add origin git@gitlab.com:YOUR_GROUP/YOUR_PROJECT.git
+git push -u origin main
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/pinky/.ssh/id_ed25519): nisse
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in nisse
+Your public key has been saved in nisse.pub
+The key fingerprint is:
+SHA256:6YV6th5S9PVgICNhmArg2Iq/IQVBvhyRrOLSTLjsNcc you@example.com
+The key's randomart image is:
++--[ED25519 256]--+
+|*o.  o+.o .      |
+|==. o. . o .     |
+|+*..    .   +    |
+|*o=    . + o o   |
+|*B. .   S o   .  |
+|o=oo E + .       |
+|+ + o o =        |
+| o o   + o       |
+|  .    .o        |
++----[SHA256]-----+
+Agent pid 139594
+/home/pinky/.ssh/id_ed25519: No such file or directory
+cat: /home/pinky/.ssh/id_ed25519.pub: No such file or directory
+git@gitlab.com: Permission denied (publickey).
+git@gitlab.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+pinky@pinky:~$ 
+
