@@ -15,4 +15,12 @@ repos:
       - id: black
         language_version: python3
 
+  - repo: https://github.com/hukkin/mdformat
+    rev: 1.0.0
+    hooks:
+      - id: mdformat
+        additional_dependencies:
+          - mdformat-gfm
+        files: '^([^/]+\.md)$'
+
 default_stages: [pre-commit]
