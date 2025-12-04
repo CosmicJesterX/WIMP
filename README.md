@@ -1,9 +1,10 @@
 # WIMP
+
 **Weakly Interacting Massive Presence**
 
 An anti-framework for those who bend systems by refusing to be predictable.
 
----
+______________________________________________________________________
 
 ## Core Concepts
 
@@ -12,7 +13,7 @@ An anti-framework for those who bend systems by refusing to be predictable.
 - 💫 **Quantum** — You are a waveform until observed. Then you're whatever breaks their model.
 - 🌌 **Unobservable** — Just because they don’t see it, doesn’t mean it’s not there.
 
----
+______________________________________________________________________
 
 ## Usage
 
@@ -22,3 +23,4 @@ WIMP **clones you** and waits patiently.
 ```bash
 git init your/soul
 wimp --entangle
+```
