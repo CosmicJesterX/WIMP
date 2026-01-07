@@ -1,0 +1,15 @@
+name: Get Current Step
+description: Reads the current step number from the step file
+outputs:
+  current_step:
+    description: The current step number
+    value: ${{ steps.get_step.outputs.current_step }}
+runs:
+  using: composite
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+    - id: get_step
+      shell: bash
+      run: |
+        echo "current_step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
