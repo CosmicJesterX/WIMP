@@ -10,6 +10,7 @@ class Particle {
     this.life = 1.0;
     this.decay = 0.01 + Math.random() * 0.02;
     this.size = 2 + Math.random() * 3;
+    this.hue = 200 + Math.random() * 60;
   }
 
   update() {
@@ -21,7 +22,7 @@ class Particle {
 
   draw(ctx) {
     ctx.globalAlpha = this.life;
-    ctx.fillStyle = `hsl(${200 + Math.random() * 60}, 70%, 60%)`;
+    ctx.fillStyle = `hsl(${this.hue}, 70%, 60%)`;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fill();
@@ -41,6 +42,8 @@ class TransmiceSystem {
     this.mouseY = 0;
     this.isActive = false;
     this.animationFrame = null;
+    this.lastParticleTime = 0;
+    this.particleInterval = 16; // ~60fps
   }
 
   init() {
@@ -53,7 +56,7 @@ class TransmiceSystem {
     this.canvas.style.width = '100%';
     this.canvas.style.height = '100%';
     this.canvas.style.pointerEvents = 'none';
-    this.canvas.style.zIndex = '9999';
+    this.canvas.style.zIndex = '1000';
     document.body.appendChild(this.canvas);
 
     this.ctx = this.canvas.getContext('2d');
@@ -77,11 +80,13 @@ class TransmiceSystem {
     this.mouseX = e.clientX;
     this.mouseY = e.clientY;
     
-    // Create particles on mouse move
-    if (this.isActive) {
+    // Throttle particle creation to avoid excessive particles
+    const now = Date.now();
+    if (this.isActive && now - this.lastParticleTime >= this.particleInterval) {
       for (let i = 0; i < 2; i++) {
         this.particles.push(new Particle(this.mouseX, this.mouseY));
       }
+      this.lastParticleTime = now;
     }
   }
 
