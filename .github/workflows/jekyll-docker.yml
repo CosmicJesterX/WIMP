@@ -9,5 +9,3 @@ on:
 jobs:
   build:
     uses: ./.github/workflows/reusable/jekyll-build.yml
-    with:
-      branch: "main"

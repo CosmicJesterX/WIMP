@@ -2,11 +2,6 @@ name: Jekyll Build (Reusable)
 
 on:
   workflow_call:
-    inputs:
-      branch:
-        description: 'Branch to trigger on'
-        required: true
-        type: string
 
 jobs:
   build:
