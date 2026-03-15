@@ -79,7 +79,7 @@ class TransmiceSystem {
   handleMouseMove(e) {
     this.mouseX = e.clientX;
     this.mouseY = e.clientY;
-    
+
     // Throttle particle creation to avoid excessive particles
     const now = Date.now();
     if (this.isActive && now - this.lastParticleTime >= this.particleInterval) {
